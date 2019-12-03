@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// TODO
+Route::get('jobs', 'Api\\JobController@get_open');
+Route::get('jobs/{job}', 'Api\\JobController@get_job');
+Route::post('jobs/{job}/send-application', 'Api\\JobController@send_application');
