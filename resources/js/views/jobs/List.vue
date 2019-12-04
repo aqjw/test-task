@@ -58,7 +58,7 @@
                             this.page++
                             state.loaded()
                         } else {
-                            state.complete();
+                            state.complete()
                         }
                     })
             },

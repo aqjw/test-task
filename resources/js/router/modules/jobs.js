@@ -1,6 +1,6 @@
-const List = () => import ('Views/jobs/List');
-const Show = () => import ('Views/jobs/Show');
-const SendApplication = () => import ('Views/jobs/SendApplication');
+const List = () => import ('Views/jobs/List')
+const Show = () => import ('Views/jobs/Show')
+const SendApplication = () => import ('Views/jobs/SendApplication')
 
 
 export default [

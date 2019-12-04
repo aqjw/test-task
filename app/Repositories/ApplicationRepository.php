@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Application;
 use App\Models\Job;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ApplicationRepository
@@ -12,13 +13,16 @@ class ApplicationRepository
      * Accept the job
      * 
      * @param  \App\Models\Application  $application
+     * @param  \Illuminate\Http\Request $request
      * 
      * @return void
      */
-    public function toAccept(Application $application)
+    public function toAccept(Application $application, Request $request)
     {
         $application->status = Application::STATUS_ACCEPTED;
-        $application->save();
+        $application->location = $request->location;
+        $application->appointed_time = Carbon::parse($request->appointed_time);
+        return $application->save();
     }
   
     /**

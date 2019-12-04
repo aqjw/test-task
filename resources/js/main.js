@@ -17,11 +17,27 @@ import router from './router'
 // store
 import { store } from './store/store'
 
+// modal
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
+
 Vue.component('InfiniteLoading', require('vue-infinite-loading'))
 
-new Vue({
-    store,
-    router,
-    render: h => h(App),
-    components: { App }
-}).$mount('#app')
+import AcceptApplication from './global_components/AcceptApplication'
+Vue.component('AcceptApplication', AcceptApplication)
+ 
+if (document.getElementById('app')) {
+    new Vue({
+        store,
+        router,
+        render: h => h(App),
+        components: { App }
+    }).$mount('#app')
+}
+
+if (document.getElementById('app-admin')) {
+    new Vue({
+        el: '#app-admin',
+        store
+    })
+}

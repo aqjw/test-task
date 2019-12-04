@@ -26,7 +26,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'applications'], function () {
-        Route::post('to-accept/{application}', 'ApplicationController@to_accept')->name('applications.to_accept');
         Route::post('to-reject/{application}', 'ApplicationController@to_reject')->name('applications.to_reject');
     });
 });

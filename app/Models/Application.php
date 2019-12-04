@@ -11,9 +11,15 @@ class Application extends Model
     const STATUS_ACCEPTED = 2;
     const STATUS_REJECTED = 3;
 
+    protected $dates = [
+        'appointed_time',
+    ];
+
     protected $fillable = [
         'name', 'email', 'file',
         'job_id', 'status',
+        'appointed_time', 
+        'location',
     ];
 
     /* Scopes */
@@ -42,6 +48,11 @@ class Application extends Model
     public function getIsOpenAttribute()
     {
         return $this->status == self::STATUS_OPEN;
+    }
+
+    public function getIsAcceptedAttribute()
+    {
+        return $this->status == self::STATUS_ACCEPTED;
     }
 
     public function getStatusNameAttribute()

@@ -12,7 +12,7 @@ export default {
 			return axios.get(`/api/jobs?page=${page}`)
 				.then(response => {
 	                commit('PUSH_JOBS_LIST', response.data)
-	                return response.data.length;
+	                return response.data.length
 	            })
 		},
 		loadJob({commit}, id) {
@@ -26,7 +26,9 @@ export default {
                 headers: {'Content-Type': 'multipart/form-data'}
 			})
 		},
-		
+		acceptApplication({state}, {application_id, formData}) {
+			return axios.post(`/api/applications/${application_id}/accept`, formData)
+		}
 	},
 	mutations: {
 		PUSH_JOBS_LIST(state, response) {

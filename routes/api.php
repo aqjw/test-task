@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
 Route::get('jobs', 'Api\\JobController@get_open');
 Route::get('jobs/{job}', 'Api\\JobController@get_job');
 Route::post('jobs/{job}/send-application', 'Api\\JobController@send_application');
+Route::post('applications/{application}/accept', 'Api\\ApplicationController@accept');

@@ -18,6 +18,8 @@ class CreateApplicationsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('file');
+            $table->string('location')->nullable();
+            $table->timestamp('appointed_time')->nullable();
             $table->tinyInteger('status')->default(1)->index();
             $table->unsignedBigInteger('job_id');
             $table->foreign('job_id')->references('id')

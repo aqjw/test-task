@@ -74,7 +74,7 @@
                         this.message = 'Application sent successfully.<br>You will be redirected to the post page in 5 seconds.'
                         setTimeout(() => {
                             this.$router.push({path: `/spa/jobs/${this.job.id}`})
-                        }, 5000);
+                        }, 5000)
                     })
                     .catch(response =>{
                         console.log(response)

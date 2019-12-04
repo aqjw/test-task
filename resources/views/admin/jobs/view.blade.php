@@ -37,13 +37,16 @@
                                         <a href="/storage/{{ $application->file }}" target="blank">CV file</a>
                                     </td>
                                     <td>{{ $application->created_at }}</td>
-                                    <td>{{ $application->status_name }}</td>
+                                    <td>
+                                        {{ $application->status_name }}
+                                        @if($application->is_accepted)
+                                            <div>time - {{ $application->appointed_time }}</div>
+                                            <div>location - {{ $application->location }}</div>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if($application->is_open)
-                                            <form class="d-inline-block" action="{{ route('applications.to_accept', $application) }}" method="post">
-                                                @csrf
-                                                <button class="btn btn-sm btn-success">accept</button>
-                                            </form>
+                                            <accept-application :application_id="{{ $application->id }}"></accept-application>
 
                                             <form class="d-inline-block" action="{{ route('applications.to_reject', $application) }}" method="post">
                                                 @csrf
